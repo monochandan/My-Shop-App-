@@ -1,8 +1,16 @@
+// see the image for code desc. / list-header.jpg --- represent one example cart, 
+// for each cart this whole code runs once
+
 import { StyleSheet, View, Text, Image, Pressable, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
 import { CATEGORIES } from '../assets/categories';
+
+// export - in JavaScript and TypeScript allows a variable, function, or component to be 
+// made available outside of the module (file) it’s defined in, so that it can be imported and used 
+// in other modules.
+
 export const ListHeader = () => {
   return (
     <View>

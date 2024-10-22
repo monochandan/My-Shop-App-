@@ -10,7 +10,8 @@ export default function CategoryLayout() {
                         <Ionicons name= 'arrow-back' size = {24} color= 'black'/>
                     </TouchableOpacity>
             ),
-            })}/>
+            })}
+            />
         </Stack>
     );
-};
+}
