@@ -5,6 +5,7 @@ import { StyleSheet, View, Text, Image, Pressable, TouchableOpacity, FlatList } 
 import React from 'react'
 import { Link } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
+import { useCartStore } from '../store/cart-store';
 import { CATEGORIES } from '../assets/categories';
 
 // export - in JavaScript and TypeScript allows a variable, function, or component to be 
@@ -12,6 +13,7 @@ import { CATEGORIES } from '../assets/categories';
 // in other modules.
 
 export const ListHeader = () => {
+  const {getItemCount} = useCartStore();
   return (
     <View>
 
@@ -39,7 +41,9 @@ export const ListHeader = () => {
                                 style={{marginRight: 15, opacity: pressed ? 0.5 : 1}}
                             />
                             <View style= {styles.badgeContainer}>
-                                <Text style={styles.badgeText}>{1}</Text>
+                                <Text style={styles.badgeText}>
+                                    {getItemCount()}
+                                </Text>
                             </View>
                         </View>
                     )}
@@ -63,7 +67,7 @@ export const ListHeader = () => {
             <FlatList 
                 data = {CATEGORIES}
                 renderItem = {({ item }) => (
-                    <Link asChild href={`/categiries/${item.slug}`}>
+                    <Link asChild href={`/category/${item.slug}`}>
                         <Pressable style={styles.category}>
                             <Image 
                                 source={{ uri: item.imageUrl }}

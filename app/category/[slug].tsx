@@ -1,21 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Redirect, useLocalSearchParams } from 'expo-router';
+import { StyleSheet, Text, View, Image, FlatList } from 'react-native'
+//import React from 'react'
+import { Redirect, Stack, useLocalSearchParams } from 'expo-router';
 import { CATEGORIES } from '../../assets/categories';
 import { PRODUCTS } from '../../assets/products';
+import { ProductListItem } from '../../components/product-list-item';
 
 const Category = () => {
   const { slug } = useLocalSearchParams<{ slug: string }> ();
 
-  const category = CATEGORIES.find(category => category.slug === 'slug');
+  const category = CATEGORIES.find(category => category.slug === slug);
 
   if(!category) return <Redirect href='/404' />;
 
   const products = PRODUCTS.filter(product => product.category.slug === slug);
   
   return (
-    <View>
-      <Text>Category</Text>
+    <View style={styles.container}>
+      <Stack.Screen options = {{title: category.name, headerTitleAlign: 'center'}} />
+      <Image source={{ uri: category.imageUrl }} style = {styles.categoryImage}/>
+      <Text style = {styles.categoryName}>{category.name}</Text>
+      <FlatList
+      data = {products}
+      keyExtractor={item => item.id.toString()}
+      renderItem= {({item}) => <ProductListItem product = {item}/>}
+      numColumns={2}
+      columnWrapperStyle={styles.productRow}
+      contentContainerStyle={styles.productsList}
+      />
     </View>
   );
 };
@@ -27,6 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     padding: 16,
+    
   },
   categoryImage: {
     width: '100%',
@@ -36,7 +48,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   categoryName:{
-    fontSize: 14,
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
   },

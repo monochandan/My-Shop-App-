@@ -10,7 +10,7 @@ export default function RootLayout() { // main layout of this app, responsible f
             
             <Stack.Screen name='(shope)' options={{headerShown: false, title: 'EZ-Shop'}}/> 
 
-            <Stack.Screen name='category' options={{headerShown: true, title: 'Categories'}}/>
+            <Stack.Screen name='category' options={{headerShown: false, title: 'Categories'}}/>
 
             <Stack.Screen name='product' options={{headerShown: true, title: 'Products'}}/>
 

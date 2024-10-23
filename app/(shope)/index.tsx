@@ -20,7 +20,7 @@ const Home = () => {
     <View>
       <FlatList 
         data={PRODUCTS}  // The FlatList is supplied with the PRODUCTS array as its data source.
-       renderItem={( { item }) => // takes the item from the data and renders into the list
+        renderItem={( { item }) => // takes the item from the data and renders into the list
 
         //renderItem={({ item }) => <ProductListItem product={item} />}: 
         //  For each item in the PRODUCTS array, the renderItem prop specifies how to render that item. 
