@@ -3,4 +3,4 @@
 
 <img src="https://github.com/user-attachments/assets/e10db004-1663-401c-9afd-aba29c119906" alt="adCart" width="400" height="800"/>
 
-<img src="https://github.com/user-attachments/assets/feffcad1-7310-49ef-a3f7-bc3a780a2d" alt="checkOut" width="400" height="800"/>
+<img src="https://github.com/user-attachments/assets/feffcad1-7310-49ef-a3f7-bc3a780a2d7e" alt="checkOut" width="400" height="800"/>
